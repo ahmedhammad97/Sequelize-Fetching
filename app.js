@@ -53,7 +53,7 @@ app.get('/', (req, res)=>{
 
 app.post('/', (req, res)=>{
 
-    quote.findAll({where: {quoteBody : req.body.searchTerm} }).then((result)=>{
+    quote.findAll({where: {quoteBody : {[sequelize.Op.regexp]: `${convertToRegex(req.body.searchTerm)}`}} }).then((result)=>{
         res.render('result', {
             searchTerm : req.body.searchTerm,
             quotes : result

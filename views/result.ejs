@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Results</title>
+        <style>
+            ul{
+                list-style-type: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <h2>You searched for: <%=searchTerm%></h2>
+            <ul>
+                <% for(i=0; i<quotes.length; i++){ %>
+                    <li><p><%= quotes[i].quoteBody %></p></li>
+                    <br>
+                    <i><%= quotes[i].author %></i>
+                <% } %>
+            </ul>
+        </center>
+    </body>
+</html>
